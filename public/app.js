@@ -10,7 +10,7 @@ Ext.application({
     launch: function() {
         console.log('View!');
 
-        Ext.create('App.view.ViewPort', {
+        Ext.create('A.view.ViewPort', {
 
         });
     }
