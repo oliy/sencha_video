@@ -1,13 +1,13 @@
 @CHARSET "ISO-8859-1";
 
-.horizontal-frame-list {
-	height : 100px;
-	
-}
-
 .thumb-wrap {
 	float: left; 
+	border-top : 3px solid #fff;
 }
 .thumb-wrap img {
 	width: 75px;	
+}
+.thumb-wrap.x-item-selected {
+	border-top : 3px solid #0f0;
+	
 }

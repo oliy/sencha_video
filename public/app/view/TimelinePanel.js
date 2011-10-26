@@ -17,6 +17,9 @@ Ext.define('A.view.TimelinePanel', {
 
     initComponent: function() {
         var me = this;
+        
+        me.items = [Ext.create('A.view.FrameListContainer', {})];
+        
         me.callParent(arguments);
     }
 });
