@@ -10,7 +10,7 @@ Ext.define('A.view.FrameListContainer', {
 	initComponent : function() {
 		var me = this;
 		
-		this.setHeight(85);
+		this.setHeight(90);
 		this.frameList = Ext.create('A.view.FrameList', {});
 		this.items = [this.frameList];	
 		this.callParent(arguments);

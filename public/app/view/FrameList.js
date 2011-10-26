@@ -31,7 +31,7 @@ Ext.define('A.view.FrameList', {
     	this.on({
     		selectionchange : function(view, selections, eOpts) {
 //    			console.log(view);
-    			console.log(selections);
+//    			console.log(selections);
 //    			console.log(eOpts);
     			var len = selections.length;
     			var frames = [];
