@@ -12,12 +12,18 @@
 
 Ext.define('A.view.ui.VideoPanel', {
     extend: 'Ext.panel.Panel',
-
+	requires: ['A.view.VideoComponent'],
     title: 'Video',
 
     initComponent: function() {
         var me = this;
-
+		Ext.applyIf(me, {
+            items: [
+                {
+                    xtype: 'videocomponent'
+                }
+            ]
+        });
         me.callParent(arguments);
     }
 });
