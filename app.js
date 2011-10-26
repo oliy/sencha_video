@@ -1,8 +1,8 @@
 var 
 	//Deps = require('./util/deps').Deps,
 	express = require('express'),
-	io = require('socket.io'),
 	app = express.createServer(),
+    bus = require('./util/bus'),
 	log = console.log,
 	socket
 	;
@@ -45,11 +45,15 @@ app.configure('production', function() {
 });
 
 
+/*
 app.get('/user/:name?', function(req,res) {
   res.send('');
 });
+*/
 
 var port = 8001;
+
+bus.init(app);
 
 console.log('Starting server on port : '+port);
 app.listen(port);
