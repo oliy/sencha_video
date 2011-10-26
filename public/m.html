@@ -1,15 +1,18 @@
 <html>
 <head>
-    <title>Hackathon Mobile</title>
+    <title>Non-Linear Video Editor Mobile (Sencha Hackathon 2011)</title>
 
     <link rel="stylesheet" type="text/css" href="touch/resources/css/sencha-touch.css">
     <!--<link rel="stylesheet" type="text/css" href="resources/css/hackathon-theme.css">-->
     <script type="text/javascript" src="touch/sencha-touch-debug.js"></script>
+    <script type="text/javascript" src="socket.io/socket.io.js"></script>
     <script type="text/javascript">
         Ext.Loader.setConfig({
             enabled: true,
+            disableCaching:true,
             paths: {
-                //'Extensible': 'extensible/src'
+                M:"app-mobile",
+                IO:"io"
             }
         });
     </script>
