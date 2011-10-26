@@ -20,7 +20,10 @@ Ext.define('A.view.ui.VideoPanel', {
 		Ext.applyIf(me, {
             items: [
                 {
-                    xtype: 'videocomponent'
+                    layout: 'fit',
+                    xtype: 'videocomponent',
+                    height: '100%',
+                    width: '100%',
                 }
             ]
         });
