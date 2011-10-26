@@ -22,7 +22,7 @@ Ext.define('A.view.FrameList', {
     	
     	this.store = Ext.create('A.stores.FrameStore', {});
     	//TODO figure out how to calculate this
-    	var img_width = 75;
+    	var img_width = 79;
     	
     	this.setWidth(this.store.getCount() * img_width);
     	
