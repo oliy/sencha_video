@@ -2,7 +2,8 @@ Ext.application({
     name: 'Hackathon',
     appFolder: 'app',
     requires: [
-        'IO.Bus'
+        'IO.Bus',
+        'A.view.ImageView'
     ],
 
     controllers: [

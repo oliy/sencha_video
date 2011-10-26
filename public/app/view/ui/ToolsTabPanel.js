@@ -12,6 +12,7 @@
 
 Ext.define('A.view.ui.ToolsTabPanel', {
     extend: 'Ext.tab.Panel',
+    requires: 'A.view.ImageView',
 
     activeTab: 0,
 
@@ -22,7 +23,14 @@ Ext.define('A.view.ui.ToolsTabPanel', {
             items: [
                 {
                     xtype: 'panel',
-                    title: 'Browse'
+                    title: 'Browse',
+                    layout: 'fit',
+                    region: 'center',
+                    padding: '5 5 5 0',
+                    items: [{
+                        xtype: 'imageview',
+                        trackOver: true
+                    }]     
                 },
                 {
                     xtype: 'panel',

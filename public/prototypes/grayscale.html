@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>CSS3 and Canvas Transformations</title>
+        
+        <style type="text/css">
+             #skew {
+                 width:720px;
+                 height:576px;
+                 -webkit-transform:rotate(180deg);
+             }
+             #ftb {
+                 position:relative;
+                 width:720px;
+                 height:576px;
+                 background-color:#000;
+             }
+             #ftb img {
+                 position:absolute;
+                 left:0;
+                 -webkit-transition: opacity 1s ease-in-out;
+                 -moz-transition: opacity 1s ease-in-out;
+                 -o-transition: opacity 1s ease-in-out;
+                 -ms-transition: opacity 1s ease-in-out;	
+                 transition: opacity 1s ease-in-out;
+             }
+
+             #ftb img.transparent {
+                 opacity:0;
+             }
+        </style>
+    </head>
+    <body>
+        <h3>Original</h3>
+        <img id="canvasSource" src="../thumbs/foo-0007.jpg" width="720" height="576" />
+        
+        <h3>Rotate (180&deg;)</h3>
+        <div id="skew">
+            <img src="../thumbs/foo-0007.jpg" width="720" height="576" />
+        </div>
+        
+        <h3>Fade to Black (images)</h3>
+        <div id="ftb">
+            <img id="frame1" src="../thumbs/foo-0007.jpg" width="720" height="576" />
+            <img id="frame2" src="../thumbs/foo-0008.jpg" width="720" height="576" />
+        </div>
+        <button id="getFtb" type="button">Fade to Black</button>
+
+        <h3>Canvas Effects</h3>
+        <canvas id="area" width="720" height="576"></canvas>
+        <button id="getGrayscale" type="button">Grayscale</button>
+
+        <script type="text/javascript">
+            var canvas = document.getElementById("area"),
+                context = canvas.getContext("2d"),
+                button = document.getElementById("getGrayscale");
+
+            window.onload = function() {
+                var image = document.getElementById("canvasSource");
+                context.drawImage(image, 0, 0);
+                
+                button.onclick = grayscale;
+            };
+
+            function grayscale() {
+                var imgd = context.getImageData(0, 0, 720, 576),
+                    pix = imgd.data;
+                for (var i = 0, n = pix.length; i < n; i += 4) {
+                var grayscale = pix[i  ] * .3 + pix[i+1] * .59 + pix[i+2] * .11;
+                    pix[i  ] = grayscale; 	// red
+                    pix[i+1] = grayscale; 	// green
+                    pix[i+2] = grayscale; 	// blue
+                    // alpha
+                }
+                context.putImageData(imgd, 0, 0);
+            };
+            
+            var ftbButton = document.getElementById("getFtb");
+            
+            function ftb() {
+                var img = document.getElementById();
+            }
+            
+    
+        </script>
+    </body>
+</html>
+    
