@@ -38,11 +38,16 @@ Ext.define('A.view.FrameList', {
     			
     			
     			for(var i = 0; i < len; i++) {
-    				frames.push(selections[i].data.frameNumber);
+    				frames.push({frame : selections[i].data.frameNumber});
     			}
     			frames.sort();
     			console.log(frames);
-    			IO.Bus.fireEvent('frameSelect', frames);
+    			
+    			if(count(frames) == 1) {
+    				IO.Bus.fireEvent('frame',frames[0]);
+    			}
+    			else 
+    				IO.Bus.fireEvent('frame', frames);
     		}
     		
     	});
