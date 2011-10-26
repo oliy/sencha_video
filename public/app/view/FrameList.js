@@ -4,10 +4,15 @@ Ext.define('A.view.FrameList', {
     itemSelector: 'div.thumb-wrap',
     emptyText: 'No images available',
     cls : 'horizontal-frame-list',
+    multiSelect : true,
     initComponent : function() {
+    	var me = this;
+    	
+    	this.addEvents('frameSelect');
+    	
     	this.tpl = new Ext.XTemplate(
         	    '<tpl for=".">',
-                '<div data-frame="{frameNumber}" class="thumb-wrap">',
+                '<div class="thumb-wrap">',
                   '<img src="{img_src}" />',
                 '</div>',
             '</tpl>',
@@ -17,12 +22,33 @@ Ext.define('A.view.FrameList', {
     	
     	this.store = Ext.create('A.stores.FrameStore', {});
     	//TODO figure out how to calculate this
-    	var img_width = 75;
+    	var img_width = 79;
     	
     	this.setWidth(this.store.getCount() * img_width);
     	
     	this.callParent(arguments);
-    }
+    	
+    	this.on({
+    		selectionchange : function(view, selections, eOpts) {
+//    			console.log(view);
+//    			console.log(selections);
+//    			console.log(eOpts);
+    			var len = selections.length;
+    			var frames = [];
+    			
+    			
+    			for(var i = 0; i < len; i++) {
+    				frames.push(selections[i].data.frameNumber);
+    			}
+    			frames.sort();
+    			console.log(frames);
+    			IO.Bus.fireEvent('frameSelect', frames);
+    		}
+    		
+    	});
+    },
+    
+    
 });
 
 
