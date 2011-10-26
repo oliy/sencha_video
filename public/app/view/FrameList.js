@@ -1,4 +1,4 @@
-Ext.define('A.views.FrameList', {
+Ext.define('A.view.FrameList', {
 	extend : 'Ext.view.View',
 	alias : ['widget.frame-list'],   
     itemSelector: 'div.thumb-wrap',
